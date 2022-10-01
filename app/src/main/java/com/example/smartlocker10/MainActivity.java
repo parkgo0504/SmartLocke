@@ -46,47 +46,65 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashMap;import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final int PICK_IMAGE = 1;
-
-
-
-    private int upload_count = 0;
-
-
-
-
-
-    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference conditionRef = mRootRef.child("text");
-
-
+    private Button join;
+    private Button login;
+    private EditText email_login;
+    private EditText pwd_login;
+    FirebaseAuth firebaseAuth;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView username = findViewById(R.id.username);
-        TextView password = findViewById(R.id.password);
+        join = (Button) findViewById(R.id.loginbtn2);
+        login = (Button) findViewById(R.id.loginbtn);
+        email_login = (EditText) findViewById(R.id.username);
+        pwd_login = (EditText) findViewById(R.id.password);
+        firebaseAuth = firebaseAuth.getInstance();//firebaseAuth의 인스턴스를 가져옴
 
-        MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
-
-        // admin and admin
-
-        loginbtn.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    Toast.makeText(MainActivity.this, "LOGIN SUCCESSFULL", Toast.LENGTH_SHORT).show();
+                String email = email_login.getText().toString().trim();
+                String pwd = pwd_login.getText().toString().trim();
+                //String형 변수 email.pwd(edittext에서 받오는 값)으로 로그인하는것
+                firebaseAuth.signInWithEmailAndPassword(email, pwd)
+                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {//성공했을때
+                                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                                    startActivity(intent);
+                                } else {//실패했을때
+                                    Toast.makeText(MainActivity.this, "로그인 오류", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
 
-                    Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-                    startActivity(intent);
+            }
+        });
 
-                } else {
-                    // incorrect
-                    Toast.makeText(MainActivity.this, "LOGIN FAILED!", Toast.LENGTH_SHORT).show();
-                }
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Activity_join.class);
+                startActivity(intent);
             }
         });
     }
