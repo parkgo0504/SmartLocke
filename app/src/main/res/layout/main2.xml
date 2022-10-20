@@ -63,6 +63,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="image load" />
+
+        <Button
+            android:id="@+id/rdbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Realtime DB" />
+
     </LinearLayout>
 
 </RelativeLayout>

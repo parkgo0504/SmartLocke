@@ -1,5 +1,6 @@
 package com.example.smartlocker10;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -13,6 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -23,8 +30,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -45,6 +50,8 @@ public class MainActivity2 extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private int upload_count = 0;
 
+    private Button button;
+
     private ImageView imageView;
     private ProgressBar progressBar;
     private final DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");
@@ -56,9 +63,12 @@ public class MainActivity2 extends AppCompatActivity {
     DatabaseReference conditionRef = mRootRef.child("text");
 
 
+    @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main2);   //메인 2레이아웃 실행
+
+
 
 
 
@@ -129,7 +139,33 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        button = (Button) findViewById(R.id.rdbutton);
+
     } // onCreate
+
+
+    @Override //  realtimeDB 시작점
+    protected void onStart() {
+        super.onStart();
+
+        conditionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String text = dataSnapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                conditionRef.setValue("True");
+            }
+        });
+    }
     private void StoreLink(String url){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("UserOne");
         HashMap<String, String> hashMap = new HashMap<>();
