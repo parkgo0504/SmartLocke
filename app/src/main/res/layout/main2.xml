@@ -45,44 +45,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/socialicons1"
-        android:layout_width="match_parent"
-        android:layout_height="472dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="345dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/upload_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Upload Image" />
-
-        <Button
-            android:id="@+id/chooser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Choose Image" />
-
-        <TextView
-            android:id="@+id/alert"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:text="here will be alert"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="20sp"
-            android:visibility="gone" />
-    </LinearLayout>
-
-
-
-
-
 
 </RelativeLayout>
