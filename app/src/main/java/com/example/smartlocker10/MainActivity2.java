@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -59,6 +60,8 @@ public class MainActivity2 extends AppCompatActivity {
 
     private Uri imageUri;
 
+
+
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("text");
 
@@ -68,6 +71,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main2);   //메인 2레이아웃 실행
 
+        EditText editText = (EditText) findViewById(R.id.Date);
 
 
 
@@ -80,8 +84,16 @@ public class MainActivity2 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) { //이미지 불러오기 이미지 전환
-                Intent intent = new Intent(getApplicationContext(), Activity.class);
-                startActivity(intent);
+                String value = editText.getText().toString();
+                if(value.length()==8) {
+                    Intent intent = new Intent(MainActivity2.this, Activity.class);
+                    intent.putExtra("Value", value);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(MainActivity2.this,"날짜 형식에 맞게 입력",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -165,7 +177,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
-    }
+}
 
     
 

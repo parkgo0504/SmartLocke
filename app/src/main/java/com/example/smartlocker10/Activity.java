@@ -1,5 +1,6 @@
 package com.example.smartlocker10;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -27,7 +28,9 @@ public class Activity extends AppCompatActivity {
         setContentView(R.layout.activtiy_load);
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageReference = storage.getReference();
-        StorageReference listRef = storage.getReference().child("ImageFolder");
+        Intent intent = getIntent();
+        String temp = intent.getStringExtra("Value");
+        StorageReference listRef = storage.getReference().child(temp);
 
         listRef.listAll()
                 .addOnSuccessListener(new OnSuccessListener<ListResult>() {

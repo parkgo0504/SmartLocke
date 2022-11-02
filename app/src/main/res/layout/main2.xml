@@ -3,26 +3,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     android:background="@drawable/background"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/signin"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:gravity="center"
-        android:text="image"
-        android:textColor="@color/white"
-        android:textSize="35dp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="image"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="날짜입력"
+                android:textColor="#CAC5C5"
+                android:textSize="24sp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/Date"
+                android:layout_width="241dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="EX. 20221031"
+                android:inputType="date"
+                android:textColor="#574B4B" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/socialicons2"
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
         android:layout_marginBottom="0dp"
         android:gravity="center"
         android:orientation="horizontal">
