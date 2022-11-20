@@ -23,7 +23,7 @@
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="50dp"
             android:gravity="center"
-            android:text="image"
+            android:text="침입기록"
             android:textColor="@color/white"
             android:textSize="35dp"
             android:textStyle="bold" />
