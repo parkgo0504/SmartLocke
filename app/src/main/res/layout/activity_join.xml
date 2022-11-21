@@ -32,7 +32,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:hint="Username"
+        android:hint="E-mail 입력"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
@@ -45,7 +45,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:hint="Password"
+        android:hint="Password 6자리 이상 입력"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 

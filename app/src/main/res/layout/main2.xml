@@ -52,6 +52,7 @@
                 android:hint="EX. 20221031"
                 android:inputType="date"
                 android:textColor="#574B4B"
+                android:textColorHint="@color/white"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
@@ -64,8 +65,9 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="0dp"
         android:gravity="center"
-        android:orientation="horizontal">
 
+
+        android:orientation="horizontal">
 
 
         <com.google.android.material.button.MaterialButton
