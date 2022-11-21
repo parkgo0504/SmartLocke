@@ -41,9 +41,13 @@
         </activity>
 
 
-        <activity android:name=".Activity"></activity>
-        <activity android:name=".MainActivity2"></activity>
-        <activity android:name=".Activity_join"></activity>
+        <activity android:name=".Activity"
+            android:theme="@style/Theme.SmartLocker10.NoActionBar"
+            ></activity>
+        <activity android:name=".MainActivity2"
+            android:theme="@style/Theme.SmartLocker10.NoActionBar"></activity>
+        <activity android:name=".Activity_join"
+            android:theme="@style/Theme.SmartLocker10.NoActionBar"></activity>
 
     </application>
 
