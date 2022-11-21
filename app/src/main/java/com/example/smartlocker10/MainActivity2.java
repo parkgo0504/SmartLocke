@@ -92,7 +92,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
-        button = (Button) findViewById(R.id.rdbutton);
+
 
     } // onCreate
 

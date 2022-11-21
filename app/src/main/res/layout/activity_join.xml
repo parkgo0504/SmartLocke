@@ -108,7 +108,8 @@
         android:layout_marginBottom="20dp"
         android:background="@color/design_default_color_on_secondary"
         android:rotationX="0"
-        android:text="회원가입"
+        android:text="등록"
+        android:textSize="20sp"
         app:backgroundTint="@color/teal_200" />
 
     <TextView

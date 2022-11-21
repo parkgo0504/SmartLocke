@@ -45,7 +45,7 @@ public class Activity extends AppCompatActivity {
                             // textview 동적생성
                             TextView tv = new TextView(Activity.this);
                             tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                            tv.setText(Integer.toString(i) + ". new TextView");
+                            tv.setText(Integer.toString(i)+".");
                             tv.setTextSize(30);
                             tv.setTextColor(0xff004497);
                             layout.addView(tv);

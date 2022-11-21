@@ -67,19 +67,22 @@
         android:orientation="horizontal">
 
 
-        <Button
-            android:id="@+id/image_load"
-            android:layout_width="151dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="image load" />
 
-        <Button
-            android:id="@+id/rdbutton"
-            android:layout_width="154dp"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/image_load"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Realtime DB" />
+            android:layout_below="@id/name_join"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/design_default_color_on_secondary"
+            android:rotationX="0"
+            android:text="확인"
+            android:textSize="20sp"
+            app:backgroundTint="@color/teal_200" />
 
 
     </LinearLayout>
